@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>DoDiWaaa Studio OAuth Callback</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; line-height: 1.6; padding: 0 20px;">
+  <h1>DoDiWaaa Studio OAuth Callback</h1>
+  <p>Authorization callback received. You may return to the local application.</p>
+  <p id="code"></p>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
+    const state = params.get("state");
+
+    document.getElementById("code").innerText =
+      code
+        ? "Authorization code: " + code
+        : "No authorization code was found in the URL.";
+
+    console.log("TikTok OAuth callback code:", code);
+    console.log("TikTok OAuth callback state:", state);
+  </script>
+</body>
+</html>
